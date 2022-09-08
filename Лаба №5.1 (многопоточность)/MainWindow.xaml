@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Лаба__5._1__многопоточность_"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="450" Width="800" MinHeight="450" MinWidth="800">
+    <Grid Background="LightGray">
+        <Border Margin="40,40,40,40" Background="White" CornerRadius="40">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Content="Опрацювати" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Height="71" Width="264" FontSize="28" Background="#39606e" Foreground="White"/>
+
+            </Grid>
+        </Border>
     </Grid>
 </Window>
