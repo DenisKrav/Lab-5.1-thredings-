@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Лаба__5._1__многопоточность_
 {
@@ -16,7 +18,16 @@ namespace Лаба__5._1__многопоточность_
     {
         private string[] data;
         private string pathFile;
-        public ReadInformation readInformation = new ReadInformation();
+        static public ReadInformation readInformation = new ReadInformation();
+        public ReadInformation Information
+        {
+            get { return readInformation; }
+            set
+            {
+                readInformation = value;
+                OnPropertyChanged("Information");
+            }
+        }
 
         public string PathFile
         {
@@ -61,8 +72,6 @@ namespace Лаба__5._1__многопоточность_
                       var t2 = Task.Run(() => FindWords());
 
                       await Task.WhenAll(t1, t2);
-                      //Task t1 = Task.Run(() => FindNumbers());
-                      //t1.Wait();
 
                       InformationWindow infWindow = new InformationWindow();
                       infWindow.Show();
@@ -72,7 +81,6 @@ namespace Лаба__5._1__многопоточность_
 
         private void FindNumbers()
         {
-            Thread.Sleep(5000);
             List<int> helpList = new List<int>();
             foreach (string b in data)
             {

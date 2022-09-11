@@ -22,6 +22,8 @@ namespace Лаба__5._1__многопоточность_
         public InformationWindow()
         {
             InitializeComponent();
+
+            DataContext = new ApplicationViewModel();
         }
     }
 }

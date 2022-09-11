@@ -23,7 +23,7 @@ namespace Лаба__5._1__многопоточность_
         public MainWindow()
         {
             InitializeComponent();
-
+            
             DataContext = new ApplicationViewModel();
         }
     }

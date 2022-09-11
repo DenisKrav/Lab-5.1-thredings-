@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Лаба__5._1__многопоточность_"
         mc:Ignorable="d"
-        Title="InformationWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="InformationWindow" Height="450" Width="800" MinHeight="450" MinWidth="800">
+    <Grid Background="LightGray">
+        <Border Margin="40,40,40,40" Background="White" CornerRadius="40" Height="350">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Прочитані числа:" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Прочитані слова:" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <ListView Grid.Row="0" Grid.Column="1" Margin="30" ItemsSource="{Binding Information.Numbers}" BorderBrush="White" FontSize="28"/>
+                <ListView Grid.Row="1" Grid.Column="1" Margin="30" ItemsSource="{Binding Information.Words}" BorderBrush="White" FontSize="28"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
