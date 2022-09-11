@@ -48,6 +48,7 @@ namespace Лаба__5._1__многопоточность_
                   (findFile = new RelayCommand(async obj =>
                   {
                       OpenFileDialog openFileDialog = new OpenFileDialog();
+                      openFileDialog.Filter= "txt files (*.txt)|*.txt|All files (*.*)|*.*";
                       if (openFileDialog.ShowDialog() == true)
                       {
                           PathFile = openFileDialog.FileName;
@@ -68,6 +69,11 @@ namespace Лаба__5._1__многопоточность_
                   (dataProcessing = new RelayCommand(async obj =>
                   {
                       //не має сенсу робити синхронізацію, бо спільний ресурс не змінюється, а лише використовується
+                      if (data == null)
+                      {
+                          MessageBox.Show("Виберіть файл","Помилка",MessageBoxButton.OK,MessageBoxImage.Error);
+                          return;
+                      }
                       var t1 = Task.Run(() => FindNumbers());
                       var t2 = Task.Run(() => FindWords());
 
