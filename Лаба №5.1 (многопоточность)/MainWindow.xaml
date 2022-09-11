@@ -7,14 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" MinHeight="450" MinWidth="800">
     <Grid Background="LightGray">
-        <Border Margin="40,40,40,40" Background="White" CornerRadius="40">
-            <Grid>
+        <Border Margin="40,40,40,40" Background="White" CornerRadius="40" Height="350">
+            <Grid Height="354" VerticalAlignment="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Button Content="Опрацювати" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Height="71" Width="264" FontSize="28" Background="#39606e" Foreground="White"/>
-
+                <Button x:Name="OperationButton" Content="Опрацювати" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Height="71" Width="264" FontSize="28" Background="#39606e" Foreground="White" Command="{Binding DataProcessing}"/>
+                <Button x:Name="FindButton" Content="Знайти файл" HorizontalAlignment="Left" VerticalAlignment="Center" Height="58" Width="184" FontSize="28" Background="#39606e" Foreground="White" Margin="10,0,0,0" Command="{Binding FindFile}"/>
+                <ScrollViewer HorizontalScrollBarVisibility ="Visible" VerticalScrollBarVisibility="Hidden" Margin="210,60,10,31">
+                    <TextBlock x:Name="FilePathTextBlock" Text="{Binding PathFile, UpdateSourceTrigger=PropertyChanged}" FontSize="28"/>
+                </ScrollViewer>
             </Grid>
         </Border>
     </Grid>
